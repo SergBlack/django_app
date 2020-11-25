@@ -1,1 +1,1 @@
-# django_app
+# Приложение на Django(Python)
