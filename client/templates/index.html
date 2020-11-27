@@ -7,14 +7,22 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <title>Main</title>
+    <title>{{ title }}</title>
 </head>
 <body>
-    <header><div class="h1">Заголовок главной страницы</div></header>
+    <header><div class="h1">{{ title }}</div></header>
     <nav>Меню навигации главной страницы</nav>
     <aside>Боковая колонка SideBar главной страницы</aside>
     <article>
-        <p>Контент - основное содержимое главной страницы</p>
         <img src="/static/img/hello-world.jpg" alt="hello" width="400px" height="300px">
+        <p>Контент - основное содержимое главной страницы</p>
+        {% for item in news %}
+        <div>
+                <p>{{ item.title }}</p>
+                <p>{{ item.content }}</p>
+                <p>{{ item.created_at|date:"d-m-Y H:i" }}</p>
+            </div>
+        <hr/>
+        {% endfor %}
     </article>
 </body>

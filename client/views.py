@@ -1,9 +1,12 @@
 from django.shortcuts import render
+from .models import News
 
 
 # Create your views here.
 def main_page(request):
-    return render(request, 'index.html')
+    news = News.objects.order_by('-created_at')
+    context = {'news': news, 'title': 'Список новостей'}
+    return render(request, 'index.html', context)
 
 
 def about_page(request):
